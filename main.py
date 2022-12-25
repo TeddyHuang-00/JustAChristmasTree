@@ -3,6 +3,9 @@ import pandas as pd
 import streamlit as st
 from plotly import graph_objects as go
 
+st.set_page_config(
+    "Just a Christmas tree", page_icon="🎄", initial_sidebar_state="collapsed"
+)
 st.title("Just a Christmas tree")
 # COMMENT_DATA = "data/test.csv"
 COMMENT_DATA = "data/comments.csv"
@@ -99,6 +102,7 @@ def get_christmas_tree():
                     color=TRUNK_COLOR,  # set color to an array/list of desired values
                     opacity=0.8,
                 ),
+                hoverinfo="none",
             ),
             go.Scatter3d(
                 x=leaf_x,
@@ -108,19 +112,9 @@ def get_christmas_tree():
                 marker=dict(
                     size=12,
                     color=LEAF_COLOR,  # set color to an array/list of desired values
-                    opacity=0.8,
+                    opacity=0.9,
                 ),
-            ),
-            go.Scatter3d(
-                x=leaf_x,
-                y=leaf_y,
-                z=leaf_z,
-                mode="markers",
-                marker=dict(
-                    size=12,
-                    color=LEAF_COLOR,  # set color to an array/list of desired values
-                    opacity=0.8,
-                ),
+                hoverinfo="none",
             ),
             go.Scatter3d(
                 x=decs_x,
@@ -132,6 +126,7 @@ def get_christmas_tree():
                     color=DECS_COLOR,  # set color to an array/list of desired values
                     opacity=1,
                 ),
+                hoverinfo="none",
             ),
             go.Scatter3d(
                 x=[0],
@@ -143,6 +138,7 @@ def get_christmas_tree():
                     color=STAR_COLOR,  # set color to an array/list of desired values
                     opacity=0.1,
                 ),
+                hoverinfo="none",
             ),
         ],
         layout=go.Layout(
